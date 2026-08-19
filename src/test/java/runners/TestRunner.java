@@ -9,8 +9,8 @@ import org.testng.annotations.DataProvider;
         glue = {"stepdefinitions", "hooks"},
         plugin = {
                 "pretty",
-                "summary",
-                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+                "summary"
+                //"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
         monochrome = true,
         publish = false
