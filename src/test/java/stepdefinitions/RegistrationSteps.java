@@ -8,6 +8,7 @@ import org.testng.Assert;
 import pages.HomePage;
 import pages.RegistrationPage;
 import pages.WelcomePage;
+import utils.FakeDataGenerator;
 
 
 public class RegistrationSteps {
@@ -20,17 +21,18 @@ public class RegistrationSteps {
 
     @When("user enters his personal details")
     public void userEntersPersonalDetails(){
-        RegistrationPage.enterFirstName("John");
-        RegistrationPage.enterLastName("Doe");
-        RegistrationPage.enterAddress("123 Main Street");
-        RegistrationPage.enterCity("Dallas");
-        RegistrationPage.enterState("Texas");
-        RegistrationPage.enterZipCode("75001");
-        RegistrationPage.enterPhoneNumber("123-456-7890");
-        RegistrationPage.enterSSN("123-45-6789");
-        RegistrationPage.enterUsername("john_doe_" + System.currentTimeMillis());
-        RegistrationPage.enterPassword("Pass@1234");
-        RegistrationPage.enterConfirmPassword("Pass@1234");
+        RegistrationPage.enterFirstName(FakeDataGenerator.getName());
+        RegistrationPage.enterLastName(FakeDataGenerator.getName());
+        RegistrationPage.enterAddress(FakeDataGenerator.getAddress());
+        RegistrationPage.enterCity(FakeDataGenerator.getCity());
+        RegistrationPage.enterState(FakeDataGenerator.getState());
+        RegistrationPage.enterZipCode(FakeDataGenerator.getZipCode());
+        RegistrationPage.enterPhoneNumber(FakeDataGenerator.getPhoneNumber());
+        RegistrationPage.enterSSN(FakeDataGenerator.getSSN());
+        RegistrationPage.enterUsername(FakeDataGenerator.getName());
+        String password = FakeDataGenerator.getPassword();
+        RegistrationPage.enterPassword(password);
+        RegistrationPage.enterConfirmPassword(password);
     }
 
     @And("clicks on register button")
