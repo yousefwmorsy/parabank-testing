@@ -6,8 +6,8 @@ import pages.LoginPage;
 public class CommonSteps {
     @Given("user is logged in")
     public void userIsLoggedIn() {
-        LoginPage.enterUsername("ElBata");
-        LoginPage.enterPassword("1234");
+        LoginPage.enterUsername("john");
+        LoginPage.enterPassword("demo");
         LoginPage.clickLoginButton();
     }
 }

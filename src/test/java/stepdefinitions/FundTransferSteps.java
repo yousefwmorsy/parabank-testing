@@ -20,20 +20,14 @@ public class FundTransferSteps {
 
     @When("user enters a valid transfer amount")
     public void userEntersValidTransferAmount() {
-
         TransferFundsPage.enterAmount("550");
-
     }
 
 
     @And("user selects different source and destination accounts")
     public void userSelectsDifferentSourceAndDestinationAccounts() {
-
         TransferFundsPage.selectFromAccount("14121");
-
-
-        TransferFundsPage.selectToAccount("14232");
-
+        TransferFundsPage.selectToAccount("13344");
     }
 
 
@@ -67,7 +61,7 @@ public class FundTransferSteps {
 
         Assert.assertEquals(
                 TransferFundsPage.getToAccountResult(),
-                "14232",
+                "13344",
                 "Destination account is incorrect"
         );
 
