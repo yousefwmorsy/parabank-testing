@@ -18,4 +18,12 @@ public class LoginPage extends HomePage {
     public static void clickLoginButton(){
         click(LOGIN_BUTTON);
     }
+
+    public static boolean isUsernameFieldDisplayed() {
+        return isElementPresent(USERNAME_FIELD);
+    }
+
+    public static boolean isPasswordFieldDisplayed() {
+        return isElementPresent(PASSWORD_FIELD);
+    }
 }
