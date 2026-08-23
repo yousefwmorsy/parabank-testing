@@ -23,7 +23,7 @@ public class RegistrationSteps {
     public void userEntersPersonalDetails(){
         RegistrationPage.enterFirstName(FakeDataGenerator.getName());
         RegistrationPage.enterLastName(FakeDataGenerator.getName());
-        RegistrationPage.enterAddress(FakeDataGenerator.getAddress());
+        RegistrationPage.enterAddress("madinatyElAlmani");
         RegistrationPage.enterCity(FakeDataGenerator.getCity());
         RegistrationPage.enterState(FakeDataGenerator.getState());
         RegistrationPage.enterZipCode(FakeDataGenerator.getZipCode());
