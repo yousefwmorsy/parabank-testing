@@ -29,7 +29,7 @@ public class RegistrationSteps {
         RegistrationPage.enterZipCode(FakeDataGenerator.getZipCode());
         RegistrationPage.enterPhoneNumber(FakeDataGenerator.getPhoneNumber());
         RegistrationPage.enterSSN(FakeDataGenerator.getSSN());
-        RegistrationPage.enterUsername(FakeDataGenerator.getName());
+        RegistrationPage.enterUsername(FakeDataGenerator.getName()+FakeDataGenerator.getName());
         String password = FakeDataGenerator.getPassword();
         RegistrationPage.enterPassword(password);
         RegistrationPage.enterConfirmPassword(password);
