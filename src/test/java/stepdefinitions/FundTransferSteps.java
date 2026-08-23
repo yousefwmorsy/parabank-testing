@@ -5,17 +5,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
-import pages.BasePage;
-import pages.HomePage;
+import pages.SidebarPage;
 import pages.TransferFundsPage;
 
 public class FundTransferSteps {
 
+
+
     @And("user is on the transfer funds page")
     public void userIsOnTransferFundsPage() {
-
-        HomePage.transferFundsClick();
-
+        SidebarPage.clickTransferFundsButton();
     }
 
 
@@ -30,10 +29,10 @@ public class FundTransferSteps {
     @And("user selects different source and destination accounts")
     public void userSelectsDifferentSourceAndDestinationAccounts() {
 
-        TransferFundsPage.selectFromAccount("13677");
+        TransferFundsPage.selectFromAccount("14121");
 
 
-        TransferFundsPage.selectToAccount("13899");
+        TransferFundsPage.selectToAccount("14232");
 
     }
 
@@ -62,13 +61,13 @@ public class FundTransferSteps {
 
         Assert.assertEquals(
                 TransferFundsPage.getFromAccountResult(),
-                "13677",
+                "14121",
                 "Source account is incorrect"
         );
 
         Assert.assertEquals(
                 TransferFundsPage.getToAccountResult(),
-                "13899",
+                "14232",
                 "Destination account is incorrect"
         );
 
