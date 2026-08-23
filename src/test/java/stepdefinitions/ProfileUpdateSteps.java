@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import org.testng.Assert;
 import pages.SidebarPage;
 import pages.UpdateContactInfoPage;
-import utils.FakeDataGenerator;
 
 public class ProfileUpdateSteps {
 
@@ -18,15 +17,15 @@ public class ProfileUpdateSteps {
         SidebarPage.clickUpdateContactInfoButton();
     }
 
-    @When("user updates contact information")
-    public void userUpdatesContactInformation() {
-        firstName = FakeDataGenerator.getName();
-        lastName = FakeDataGenerator.getName();
-        address = FakeDataGenerator.getAddress();
-        city = FakeDataGenerator.getCity();
-        state = FakeDataGenerator.getState();
-        zip = FakeDataGenerator.getZipCode();
-        phone = FakeDataGenerator.getPhoneNumber();
+    @When("user updates contact information with first name {string}, last name {string}, address {string}, city {string}, state {string}, zip {string}, and phone {string}")
+    public void userUpdatesContactInformation(String fname, String lname, String addr, String c, String st, String z, String p) {
+        firstName = fname;
+        lastName = lname;
+        address = addr;
+        city = c;
+        state = st;
+        zip = z;
+        phone = p;
 
         UpdateContactInfoPage.enterFirstName(firstName);
         UpdateContactInfoPage.enterLastName(lastName);

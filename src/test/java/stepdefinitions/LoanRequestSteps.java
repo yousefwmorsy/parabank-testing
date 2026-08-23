@@ -9,20 +9,28 @@ import pages.RequestLoanPage;
 import pages.SidebarPage;
 
 public class LoanRequestSteps {
+
+    private String loanAmount;
+    private String downPayment;
+    private String selectedAccount;
+
     @And("user is on the loan request page")
     public void userIsOnRequestLoanPage() {
         SidebarPage.clickRequestLoanButton();
     }
 
-    @When("user enters a loan and down payment amount")
-    public void userEntersLoanAndDownPaymentAmount() {
-        RequestLoanPage.enterLoanAmount("500");
-        RequestLoanPage.enterDownPayment("0");
+    @When("user enters loan amount {string} and down payment {string}")
+    public void userEntersLoanAndDownPaymentAmount(String loan, String downPaymentAmount) {
+        this.loanAmount = loan;
+        this.downPayment = downPaymentAmount;
+        RequestLoanPage.enterLoanAmount(loan);
+        RequestLoanPage.enterDownPayment(downPaymentAmount);
     }
 
-    @And("selects from a valid account")
-    public void userSelectsFromValidAccount() {
-        RequestLoanPage.selectFromAccount("15120");
+    @And("selects account {string} for the loan")
+    public void userSelectsFromValidAccount(String account) {
+        this.selectedAccount = account;
+        RequestLoanPage.selectFromAccount(account);
     }
 
     @And("clicks on apply now button")

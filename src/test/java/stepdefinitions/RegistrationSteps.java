@@ -13,7 +13,6 @@ import utils.FakeDataGenerator;
 
 public class RegistrationSteps {
 
-    // Step definitions for User Registration will be implemented here
     @Given("user is on the registration page")
     public void userIsOnRegPage(){
         HomePage.regBtnClick();
@@ -23,7 +22,7 @@ public class RegistrationSteps {
     public void userEntersPersonalDetails(){
         RegistrationPage.enterFirstName(FakeDataGenerator.getName());
         RegistrationPage.enterLastName(FakeDataGenerator.getName());
-        RegistrationPage.enterAddress("madinatyElAlmani");
+        RegistrationPage.enterAddress(FakeDataGenerator.getCountry());
         RegistrationPage.enterCity(FakeDataGenerator.getCity());
         RegistrationPage.enterState(FakeDataGenerator.getState());
         RegistrationPage.enterZipCode(FakeDataGenerator.getZipCode());

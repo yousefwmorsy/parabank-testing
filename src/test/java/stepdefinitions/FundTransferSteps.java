@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
@@ -10,38 +9,36 @@ import pages.TransferFundsPage;
 
 public class FundTransferSteps {
 
-
+    private String transferAmount;
+    private String fromAccount;
+    private String toAccount;
 
     @And("user is on the transfer funds page")
     public void userIsOnTransferFundsPage() {
         SidebarPage.clickTransferFundsButton();
     }
 
-
-    @When("user enters a valid transfer amount")
-    public void userEntersValidTransferAmount() {
-        TransferFundsPage.enterAmount("550");
+    @When("user enters a valid transfer amount of {string}")
+    public void userEntersValidTransferAmount(String amount) {
+        this.transferAmount = amount;
+        TransferFundsPage.enterAmount(amount);
     }
 
-
-    @And("user selects different source and destination accounts")
-    public void userSelectsDifferentSourceAndDestinationAccounts() {
-        TransferFundsPage.selectFromAccount("14121");
-        TransferFundsPage.selectToAccount("13344");
+    @And("user selects source account {string} and destination account {string}")
+    public void userSelectsDifferentSourceAndDestinationAccounts(String source, String destination) {
+        this.fromAccount = source;
+        this.toAccount = destination;
+        TransferFundsPage.selectFromAccount(source);
+        TransferFundsPage.selectToAccount(destination);
     }
-
 
     @And("clicks on transfer button")
     public void userClicksOnTransferButton() {
-
         TransferFundsPage.clickTransfer();
-
     }
 
-
-    @Then("transfer confirmation appears")
-    public void transferConfirmationAppears() {
-
+    @Then("transfer confirmation appears with amount {string}, from account {string}, and to account {string}")
+    public void transferConfirmationAppears(String expectedAmount, String expectedFromAccount, String expectedToAccount) {
         Assert.assertTrue(
                 TransferFundsPage.isTransferSuccessful(),
                 "Transfer confirmation was not displayed"
@@ -49,19 +46,19 @@ public class FundTransferSteps {
 
         Assert.assertEquals(
                 TransferFundsPage.getAmountResult(),
-                "$550.00",
+                "$" + expectedAmount,
                 "Transferred amount is incorrect"
         );
 
         Assert.assertEquals(
                 TransferFundsPage.getFromAccountResult(),
-                "14121",
+                expectedFromAccount,
                 "Source account is incorrect"
         );
 
         Assert.assertEquals(
                 TransferFundsPage.getToAccountResult(),
-                "13344",
+                expectedToAccount,
                 "Destination account is incorrect"
         );
 

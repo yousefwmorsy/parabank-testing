@@ -6,7 +6,7 @@ Feature: Fund Transfer Request
    Scenario: Approved loan request
      Given user is logged in
      And user is on the loan request page
-     When user enters a loan and down payment amount
-     And selects from a valid account
+     When user enters loan amount "500" and down payment "0"
+     And selects account "15120" for the loan
      And clicks on apply now button
      Then loan confirmation appears
