@@ -1,9 +1,24 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.testng.Assert;
+import pages.OpenAccountPage;
+import pages.SidebarPage;
 
 public class AccountCreationSteps {
-    // Step definitions for Account Creation will be implemented here
+    @When("user clicks create new account")
+    public void userClicksCreateNewAccount() {
+        OpenAccountPage.clickCreateAccountButton();
+    }
+    @Then("account creation confirmation appears")
+    public void accountCreationConfirmationAppears() {
+        Assert.assertTrue(OpenAccountPage.isAcccountCreatedSuccessfully());
+    }
+    @And("user is on the account creation page")
+    public void userIsOnTheAccountCreationPage() {
+        SidebarPage.clickOpenNewAccountButton();
+    }
 }
