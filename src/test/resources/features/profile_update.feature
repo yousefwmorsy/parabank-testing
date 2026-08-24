@@ -1,4 +1,7 @@
 Feature: Update Profile
+  As a logged in user
+  I want to update my profile
+  So that I could keep my information up to date
 
   Scenario: User updates contact information
     Given user is logged in
