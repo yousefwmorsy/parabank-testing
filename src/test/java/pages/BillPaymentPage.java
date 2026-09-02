@@ -16,6 +16,7 @@ public class BillPaymentPage extends BasePage {
     private static final By FROM_ACCOUNT = By.cssSelector("select[name='fromAccountId']");
     private static final By SEND_PAYMENT_BUTTON = By.cssSelector("input[value='Send Payment']");
     private static final By PAYMENT_CONFIRMATION = By.id("billpayResult");
+    private static final By BILL_PAYMENT_FORM = By.id("billpayForm");
 
     public static void enterPayeeName(String name) {
         enterText(PAYEE_NAME, name);
@@ -63,5 +64,9 @@ public class BillPaymentPage extends BasePage {
 
     public static boolean isPaymentConfirmationDisplayed() {
         return isElementPresent(PAYMENT_CONFIRMATION);
+    }
+
+    public static boolean isBillPaymentFormDisplayed() {
+        return isElementPresent(BILL_PAYMENT_FORM);
     }
 }

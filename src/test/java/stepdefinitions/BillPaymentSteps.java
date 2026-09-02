@@ -16,6 +16,7 @@ public class BillPaymentSteps {
     @And("user is on the bill payment page")
     public void userIsOnTheBillPaymentPage() {
         SidebarPage.clickBillPayButton();
+        Assert.assertTrue(BillPaymentPage.isBillPaymentFormDisplayed(), "Bill payment page is not displayed");
     }
 
     @When("user enters valid payee information with name {string}, address {string}, city {string}, state {string}, zip {string}, and phone {string}")
@@ -46,7 +47,6 @@ public class BillPaymentSteps {
 
     @Then("bill payment confirmation appears")
     public void billPaymentConfirmationAppears() {
-        Assert.assertTrue(
-                BillPaymentPage.isPaymentConfirmationDisplayed());
+        Assert.assertTrue(BillPaymentPage.isPaymentConfirmationDisplayed(), "Payment confirmation was not displayed.");
     }
 }
