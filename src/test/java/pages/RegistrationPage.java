@@ -4,30 +4,18 @@ import org.openqa.selenium.By;
 
 public class RegistrationPage extends BasePage{
     private final static By REGISTER_BTN = By.cssSelector("input[type=\"submit\"][value=\"Register\"]");
-
     private final static By FIRST_NAME_TB = By.id("customer.firstName");
-
     private final static By LAST_NAME_TB = By.id("customer.lastName");
-
     private final static By ADDRESS_TB = By.id("customer.address.street");
-
     private final static By CITY_TB = By.id("customer.address.city");
-
     private final static By STATE_TB = By.id("customer.address.state");
-
     private final static By ZIP_CODE_TB = By.id("customer.address.zipCode");
-
     private final static By PHONE_NO_TB = By.id("customer.phoneNumber");
-
     private final static By SSN_TB = By.id("customer.ssn");
-
     private final static By USERNAME_TB = By.id("customer.username");
-
     private final static By PASSWORD_TB = By.id("customer.password");
-
     private final static By CONFIRM_PASSWORD_TB = By.id("repeatedPassword");
-
-
+    private final static By REGISTRATION_FORM = By.id("customerForm");
 
 
 
@@ -79,6 +67,9 @@ public class RegistrationPage extends BasePage{
         click(REGISTER_BTN);
     }
 
+    public static boolean isRegistrationFormDisplayed() {
+        return isElementPresent(REGISTRATION_FORM);
+    }
 
 
 

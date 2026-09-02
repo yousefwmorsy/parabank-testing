@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.RegistrationPage;
@@ -16,6 +17,7 @@ public class RegistrationSteps {
     @Given("user is on the registration page")
     public void userIsOnRegPage(){
         HomePage.regBtnClick();
+        Assert.assertTrue(RegistrationPage.isRegistrationFormDisplayed(),  "User was not redirected to update profile page.");
     }
 
     @When("user enters his personal details")
@@ -28,7 +30,7 @@ public class RegistrationSteps {
         RegistrationPage.enterZipCode(FakeDataGenerator.getZipCode());
         RegistrationPage.enterPhoneNumber(FakeDataGenerator.getPhoneNumber());
         RegistrationPage.enterSSN(FakeDataGenerator.getSSN());
-        RegistrationPage.enterUsername(FakeDataGenerator.getName()+FakeDataGenerator.getName());
+        RegistrationPage.enterUsername(RandomStringUtils.randomAlphabetic(8));
         String password = FakeDataGenerator.getPassword();
         RegistrationPage.enterPassword(password);
         RegistrationPage.enterConfirmPassword(password);
@@ -37,12 +39,11 @@ public class RegistrationSteps {
     @And("clicks on register button")
     public void userClicksOnRegBtn(){
         RegistrationPage.clickRegister();
-
     }
 
     @Then("welcome page appears")
     public void welcomePageAppears(){
-        Assert.assertTrue(WelcomePage.IsUserRegistered());
+        Assert.assertTrue(WelcomePage.IsUserRegistered(), "User was not registered correctly.");
     }
 
 
