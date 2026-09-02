@@ -12,13 +12,24 @@ import java.time.Duration;
 
 public abstract class BasePage extends DriverFactory {
 
-    protected static WebElement waitVisible(By locator) {
+    protected static WebElement waitVisible(By locator)  {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     protected static WebElement waitClickable(By locator) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
