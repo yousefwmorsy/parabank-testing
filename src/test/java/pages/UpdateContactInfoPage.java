@@ -12,6 +12,7 @@ public class UpdateContactInfoPage extends BasePage {
     private final static By ZIP_CODE_TB = By.id("customer.address.zipCode");
     private final static By PHONE_NO_TB = By.id("customer.phoneNumber");
     private final static By UPDATE_BTN = By.cssSelector("input.button[value='Update Profile']");
+    private final static By UPDATE_PROFILE_FORM = By.id("updateProfileForm");
 
     public static void enterFirstName(String firstName) {
         enterText(FIRST_NAME_TB, firstName);
@@ -73,4 +74,7 @@ public class UpdateContactInfoPage extends BasePage {
         return getDriver().findElement(PHONE_NO_TB).getAttribute("value");
     }
 
+    public static boolean isUpdateProfileFormDisplayed() {
+        return isElementPresent(UPDATE_PROFILE_FORM);
+    }
 }
