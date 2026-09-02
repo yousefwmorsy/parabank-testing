@@ -13,6 +13,7 @@ public class RequestLoanPage extends BasePage {
     private static final By LOAN_STATUS = By.id("loanStatus");
     private static final By NEW_ACCOUNT_ID = By.id("newAccountId");
     private static final By LOAN_APPROVED_MESSAGE = By.id("loanRequestApproved");
+    private static final By REQUEST_LOAN_FORM = By.id("requestLoanForm");
 
     public static void enterLoanAmount(String amount) {
         enterText(LOAN_AMOUNT, amount);
@@ -52,5 +53,9 @@ public class RequestLoanPage extends BasePage {
 
     public static boolean isLoanApprovedMessageDisplayed() {
         return isElementPresent(LOAN_APPROVED_MESSAGE);
+    }
+
+    public static boolean isRequestLoanFormDisplayed() {
+        return isElementPresent(REQUEST_LOAN_FORM);
     }
 }

@@ -9,27 +9,20 @@ import pages.RequestLoanPage;
 import pages.SidebarPage;
 
 public class LoanRequestSteps {
-
-    private String loanAmount;
-    private String downPayment;
-    private String selectedAccount;
-
     @And("user is on the loan request page")
     public void userIsOnRequestLoanPage() {
         SidebarPage.clickRequestLoanButton();
+        Assert.assertTrue(RequestLoanPage.isRequestLoanFormDisplayed(), "User was not redirected to request loan page.");
     }
 
     @When("user enters loan amount {string} and down payment {string}")
     public void userEntersLoanAndDownPaymentAmount(String loan, String downPaymentAmount) {
-        this.loanAmount = loan;
-        this.downPayment = downPaymentAmount;
         RequestLoanPage.enterLoanAmount(loan);
         RequestLoanPage.enterDownPayment(downPaymentAmount);
     }
 
     @And("selects account {string} for the loan")
     public void userSelectsFromValidAccount(String account) {
-        this.selectedAccount = account;
         RequestLoanPage.selectFromAccount(account);
     }
 
@@ -40,6 +33,6 @@ public class LoanRequestSteps {
 
     @Then("loan confirmation appears")
     public void loanConfirmationAppears() {
-        Assert.assertTrue(RequestLoanPage.isLoanApprovedMessageDisplayed());
+        Assert.assertTrue(RequestLoanPage.isLoanApprovedMessageDisplayed(), "Loan approval message is not displayed.");
     }
 }
