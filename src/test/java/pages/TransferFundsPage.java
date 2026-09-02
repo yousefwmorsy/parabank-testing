@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class TransferFundsPage extends BasePage {
 
@@ -28,9 +29,11 @@ public class TransferFundsPage extends BasePage {
     private static final By TO_ACCOUNT_RESULT =
             By.id("toAccountIdResult");
 
+    private static final By TRANSFER_FUNDS_FORM = By.id("transferApp");
 
     public static void enterAmount(String amount) {
         enterText(AMOUNT, amount);
+        Assert.assertTrue(Double.parseDouble(amount) > 0,"Amount should be more than zero");
     }
 
 
@@ -66,5 +69,9 @@ public class TransferFundsPage extends BasePage {
 
     public static String getToAccountResult() {
         return getText(TO_ACCOUNT_RESULT);
+    }
+
+    public static boolean isTransferFormDisplayed() {
+        return isElementPresent(TRANSFER_FUNDS_FORM);
     }
 }

@@ -16,6 +16,7 @@ public class FundTransferSteps {
     @And("user is on the transfer funds page")
     public void userIsOnTransferFundsPage() {
         SidebarPage.clickTransferFundsButton();
+        Assert.assertTrue(TransferFundsPage.isTransferFormDisplayed(), "User was not redirected to transfer funds page.");
     }
 
     @When("user enters a valid transfer amount of {string}")
