@@ -5,4 +5,7 @@
             <class name="runners.TestRunner"/>
         </classes>
     </test>
+    <listeners>
+        <listener class-name="utils.AllureReportListener"/>
+    </listeners>
 </suite>
